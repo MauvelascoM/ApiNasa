@@ -7,6 +7,7 @@ function App() {
   const [date, setDate] = useState(new Date());
   const [events, setEvents] = useState([]);
   const [selectedEvents, setSelectedEvents] = useState([]);
+  const [selectedDate, setSelectedDate] = useState(null);
 
   useEffect(() => {
     const start = new Date(date.getFullYear(), date.getMonth(), 1);
@@ -21,10 +22,13 @@ function App() {
 
   function onDayClick(value) {
     const day = value.toISOString().split('T')[0];
-    const matches = events.filter(ev => ev.startTime?.startsWith(day) || ev.activityID?.startsWith(day));
+    const matches = events.filter(ev => {
+      const eventDate = ev.startTime?.split('T')[0] || ev.activityID?.split('T')[0];
+      return eventDate === day;
+    });
+    setSelectedDate(day);
     setSelectedEvents(matches);
   }
-
   return (
     <div className="max-w-4xl mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">🌞 Solar Event Calendar</h1>
@@ -38,9 +42,9 @@ function App() {
         }}
       />
 
-      {selectedEvents.length > 0 && (
+      {selectedEvents.length > 0 && selectedDate && (
         <div className="mt-6">
-          <h2 className="text-xl font-semibold">Events on {selectedEvents[0].startTime?.split('T')[0]}</h2>
+          <h2 className="text-xl font-semibold">Events on {selectedDate}</h2>
           <ul className="mt-2">
             {selectedEvents.map((ev, idx) => (
               <li key={idx} className="mb-2 border p-2 rounded bg-white shadow">
