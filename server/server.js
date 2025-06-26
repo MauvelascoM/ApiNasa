@@ -4,7 +4,13 @@ const axios = require('axios');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+
+app.use(cors({
+  origin: 'https://apinasa-frontend.onrender.com/',  
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
+
 const NASA_API_KEY = "doeOrDrZkTaYZQKoT0klkRa3ojksk4xmWI7bqcjN";
 
 app.get('/api/hello', (req, res) => {
