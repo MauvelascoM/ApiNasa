@@ -107,7 +107,7 @@ export default function NearEarthObjects() {
                         }}
                       >
                         <img
-                          src="/marss.jpg"
+                          src="/Marss.jpg"
                           alt="Earth"
                           style={{ width: '100%', height: 'auto' }}
                         />

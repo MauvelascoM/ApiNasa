@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 export default function EpicSection() {
   const [date, setDate] = useState('2024-04-08');
@@ -23,17 +25,16 @@ export default function EpicSection() {
       />
 
       {images.length > 0 ? (
-        <div className="image-grid">
-          {images.map(item => (
-            <div key={item.image}>
-              <img
-                src={`https://epic.gsfc.nasa.gov/archive/natural/${date.replaceAll('-', '/')}/png/${item.image}.png`}
-                alt={item.caption}
-              />
-              <p>{item.caption}</p>
-            </div>
-          ))}
-        </div>
+        <Swiper spaceBetween={10} slidesPerView={1} navigation>
+  {images.map(item => (
+    <SwiperSlide key={item.image}>
+      <img
+        src={`https://epic.gsfc.nasa.gov/archive/natural/${date.replaceAll('-', '/')}/png/${item.image}.png`}
+        alt={item.caption}
+      />
+    </SwiperSlide>
+  ))}
+</Swiper>
       ) : (
         <p>No images found for {date}.</p>
       )}
