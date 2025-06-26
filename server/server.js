@@ -30,13 +30,13 @@ app.get('/api/neo', async (req, res) => {
   try {
     const { start_date, end_date } = req.query;
 
-
     const url = `https://api.nasa.gov/neo/rest/v1/feed?api_key=${NASA_API_KEY}` +
                 `${start_date ? `&start_date=${start_date}` : ''}` +
                 `${end_date ? `&end_date=${end_date}` : ''}`;
 
     
     const response = await axios.get(url);
+    console.log(`EPIC results for ${date}:`, response.data.length);
     res.json(response.data);
   } catch (error) {
     console.error("NASA NEO fetch failed:", error.message);
