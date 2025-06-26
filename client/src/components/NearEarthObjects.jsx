@@ -1,6 +1,4 @@
 import React, { useState,useRef, useEffect } from 'react';
-import NearEarthObjects from './NearEarthObjects';
-
 
 
 export default function NearEarthObjects() {
