@@ -5,7 +5,7 @@ function App() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    fetch('https://apinasa-backend.onrender.com')
+    fetch('https://your-backend-url.onrender.com/api/hello')
       .then(res => res.json())
       .then(data => setMessage(data.message))
       .catch(console.error);
