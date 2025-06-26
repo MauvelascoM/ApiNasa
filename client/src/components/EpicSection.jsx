@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css/navigation';
 import 'swiper/css';
 
 export default function EpicSection() {
@@ -25,7 +27,12 @@ export default function EpicSection() {
       />
 
       {images.length > 0 ? (
-        <Swiper spaceBetween={10} slidesPerView={1} navigation>
+        <Swiper
+        modules={[Navigation]}
+        navigation
+         spaceBetween={10} 
+         slidesPerView={1} 
+         >
   {images.map(item => (
     <SwiperSlide key={item.image}>
       <img

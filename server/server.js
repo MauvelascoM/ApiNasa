@@ -26,6 +26,43 @@ app.get('/api/apod', async (req, res) => {
   }
 });
 
+
+
+const NASA_API = 'https://api.nasa.gov/DONKI';
+
+app.get('/api/events', async (req, res) => {
+  const { start, end, type } = req.query;
+  const types = type ? [type] : ['CME', 'FLR', 'SEP', 'HSS', 'WSAEnlilSimulations'];
+
+  try {
+    const results = await Promise.all(
+      types.map(async t => {
+        const { data } = await axios.get(`${NASA_API_KEY}/${t}`, {
+          params: {
+            startDate: start,
+            endDate: end,
+            api_key: NASA_API_KEY,
+          },
+        });
+        return data.map(event => ({ ...event, eventType: t }));
+      })
+    );
+
+    res.json(results.flat());
+  } catch (error) {
+    console.error('Error fetching DONKI data:', error.message);
+    res.status(500).json({ error: 'Failed to fetch space weather events' });
+  }
+});
+
+
+
+
+
+
+
+
+
 app.get('/api/neo', async (req, res) => {
   try {
     const { start_date, end_date } = req.query;
