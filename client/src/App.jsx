@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+import './AppNasa.css';
 
 
 
@@ -32,12 +32,6 @@ function App() {
         <NearEarthObjects />
       </div>
 
-      {/* <div className="section">
-        <EarthImage />
-      </div>
-      <div className="section">
-        <Mars />
-      </div> */}
     </div>
     
   );
