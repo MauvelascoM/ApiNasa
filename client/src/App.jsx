@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './AppNasa.css';
 import NearEarthObjects from './components/NearEarthObjects';
 import EpicSection from './components/EpicSection';
-import SolarCalendar from './components/SolarCalendar'
+import SolarCalendar from './components/solarCalendar'
 
 
 function App() {
