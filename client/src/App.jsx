@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './AppNasa.css';
 import NearEarthObjects from './components/NearEarthObjects';
 import EpicSection from './components/EpicSection';
-import solarCalendar from './components/solarCalendar';
+import SolarCalendar from './components/solarCalendar';
 
 
 function App() {
@@ -37,8 +37,9 @@ function App() {
         <EpicSection/>
       </div>
       <div className="section">
-        <solarCalendar/>
+        <SolarCalendar/>
       </div>
+ 
 
     </div>
     
