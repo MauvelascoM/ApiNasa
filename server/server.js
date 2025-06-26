@@ -44,6 +44,20 @@ app.get('/api/neo', async (req, res) => {
   }
 });
 
+app.get('/api/epic/:date', async (req, res) => {
+  const { date } = req.params; 
+  try {
+    const resp = await axios.get(
+      `https://api.nasa.gov/EPIC/api/natural/date/${date}`,
+      { params: { api_key: NASA_API_KEY } }
+    );
+    res.json(resp.data);
+  } catch (err) {
+    console.error('EPIC fetch error:', err.message);
+    res.status(500).json({ error: 'Failed to fetch EPIC' });
+  }
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './AppNasa.css';
-import NearEarthObjects from './NearEarthObjects';
+import NearEarthObjects from './components/NearEarthObjects';
+import EpicSection from './components/EpicSection';
 
 
 
@@ -31,6 +32,9 @@ function App() {
       <p>{apod.explanation}</p>
        <div className="section">
         <NearEarthObjects />
+      </div>
+      <div className="section">
+        <EpicSection/>
       </div>
 
     </div>
