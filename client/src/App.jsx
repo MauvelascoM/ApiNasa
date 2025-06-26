@@ -7,7 +7,7 @@ function App() {
   const [apod, setApod] = useState(null);
 
   useEffect(() => {
-  fetch('https://your-backend-url.onrender.com/api/apod')
+  fetch('https://apinasa-backend.onrender.com/api/apod')
     .then(res => {
       if (!res.ok) throw new Error(`Request failed (${res.status})`);
       return res.json();

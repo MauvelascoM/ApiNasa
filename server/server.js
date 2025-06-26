@@ -6,16 +6,13 @@ require('dotenv').config();
 const app = express();
 
 app.use(cors({
-  origin: 'https://apinasa-frontend.onrender.com/',  
+  origin: 'https://apinasa-frontend.onrender.com',  
   methods: ['GET', 'POST'],
   credentials: true
 }));
 
 const NASA_API_KEY = "doeOrDrZkTaYZQKoT0klkRa3ojksk4xmWI7bqcjN";
 
-app.get('/api/hello', (req, res) => {
-  res.json({ message: 'Hello from backend!' });
-});
 
 app.get('/api/apod', async (req, res) => {
   try {
