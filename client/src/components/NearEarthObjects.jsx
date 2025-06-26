@@ -22,7 +22,8 @@ export default function NearEarthObjects() {
     if (endDate) query += (query ? '&' : '') + `end_date=${endDate}`;
 
     try {
-      const res = await fetch(`/api/neo?${query}`);
+      const res = await fetch(`https://apinasa-backend.onrender.com/api/neo?${query}`);
+
       if (!res.ok) throw new Error('Failed to fetch data');
       const data = await res.json();
       setAsteroids(data.near_earth_objects);
