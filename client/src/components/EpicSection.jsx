@@ -6,7 +6,7 @@ export default function EpicSection() {
 
   useEffect(() => {
     if (!date) return;
-    fetch(`/api/epic/${date}`)
+    fetch(`https://apinasa-backend.onrender.com/api/epic/${date}`)
       .then(res => res.json())
       .then(setImages)
       .catch(console.error);

@@ -34,7 +34,7 @@ app.get('/api/neo', async (req, res) => {
       params: {
         start_date,
         end_date,
-        api_key: NASA_API_KEY || 'DEMO_KEY'
+        api_key: NASA_API_KEY
       }
     });
     res.json(response.data);
