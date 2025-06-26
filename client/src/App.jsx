@@ -28,11 +28,11 @@ function App() {
         <iframe src={apod.url} width="600" height="400" title="NASA Video" />
       )}
       <p>{apod.explanation}</p>
-       {/* <div className="section">
+       <div className="section">
         <NearEarthObjects />
       </div>
 
-      <div className="section">
+      {/* <div className="section">
         <EarthImage />
       </div>
       <div className="section">

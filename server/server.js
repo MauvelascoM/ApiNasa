@@ -26,6 +26,24 @@ app.get('/api/apod', async (req, res) => {
   }
 });
 
+app.get('/api/neo', async (req, res) => {
+  try {
+    const { start_date, end_date } = req.query;
+
+
+    const url = `https://api.nasa.gov/neo/rest/v1/feed?api_key=${NASA_API_KEY}` +
+                `${start_date ? `&start_date=${start_date}` : ''}` +
+                `${end_date ? `&end_date=${end_date}` : ''}`;
+
+    
+    const response = await axios.get(url);
+    res.json(response.data);
+  } catch (error) {
+    console.error("NASA NEO fetch failed:", error.message);
+    res.status(500).json({ error: 'Failed to fetch Near Earth Objects data' });
+  }
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
