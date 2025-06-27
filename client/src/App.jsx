@@ -36,9 +36,9 @@ function App() {
       <div className="section">
         <EpicSection/>
       </div>
-      {/* <div className="section">
+      <div className="section">
         <SolarCalendar/>
-      </div> */}
+      </div>
  
 
     </div>
