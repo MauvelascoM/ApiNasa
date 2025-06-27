@@ -19,7 +19,7 @@ function App() {
       return res.json();
     })
     .then(data => setApod(data))
-    .catch(console.error);More actions
+    .catch(console.error);
 }, []);
 
   if (!apod) return <p>Loading...</p>;
