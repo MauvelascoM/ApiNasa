@@ -13,10 +13,14 @@ function App() {
     const [apod, setApod] = useState(null);
 
   useEffect(() => {
-    axios.get('https://apinasa-backend.onrender.com/api/apod')
-      .then(res => setApod(res.data))
-      .catch(console.error);
-  }, []);
+  fetch('https://apinasa-backend.onrender.com/api/apod')
+    .then(res => {
+      if (!res.ok) throw new Error(`Request failed (${res.status})`);
+      return res.json();
+    })
+    .then(data => setApod(data))
+    .catch(console.error);More actions
+}, []);
 
   if (!apod) return <p>Loading...</p>;
 
