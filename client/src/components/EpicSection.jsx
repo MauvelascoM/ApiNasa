@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css/navigation';
 import 'swiper/css';
+import './EpicSection.css';
 
 export default function EpicSection() {
   const [date, setDate] = useState('2024-04-08');
