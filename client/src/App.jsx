@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import './AppNasa.css';
-import axios from 'axios';
-import React, { useRef} from 'react';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import CalendarView from './components/solarCalendar';
