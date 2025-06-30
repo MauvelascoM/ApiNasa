@@ -33,7 +33,7 @@ function App() {
   path="/"
   element={
     <>
-      <h2 className="text-xl">Welcome to SpaceScope 🚀</h2>
+      <h2 className="text-xl">Welcome! </h2>
       <div className="App">
         <h1>{apod.title}</h1>
         <p>{apod.date}</p>

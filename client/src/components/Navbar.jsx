@@ -5,7 +5,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <h1 className="navbar-logo">☀️ SpaceScope</h1>
+        <h1 className="navbar-logo">☀️</h1>
         <ul className="navbar-menu">
           <li><Link to="/" className="navbar-link">Home</Link></li>
           <li><Link to="/calendar" className="navbar-link">Solar Events</Link></li>
